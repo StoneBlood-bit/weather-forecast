@@ -9,6 +9,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.function.Supplier;
 
 public class WeatherService {
     private static final Dotenv dotenv = Dotenv.load();
@@ -41,6 +42,14 @@ public class WeatherService {
             return forecast;
         } catch (Exception e) {
             throw new ForecastException("Failed to fetch forecast for city: " + city);
+        }
+    }
+
+    private <T> T safeGet(Supplier<T> supplier, T fallback) {
+        try {
+            return supplier.get();
+        } catch (Exception e) {
+            return fallback;
         }
     }
 }
