@@ -5,7 +5,6 @@ import weatherforecast.exeption.ForecastException;
 import weatherforecast.model.WeatherForecast;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
